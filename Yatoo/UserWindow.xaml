@@ -1,0 +1,103 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:ec="http://schemas.microsoft.com/expression/2010/controls"
+	x:Class="Yatoo.UserWindow"
+	x:Name="Window"
+	Title="UserWindow"
+	Width="570" Height="400"
+	WindowStyle="None"
+	ResizeMode="NoResize"
+    ShowInTaskbar="False"
+    AllowsTransparency="True" Deactivated="deactivated" PreviewKeyDown="Window_PreviewKeyDown" PreviewKeyUp="Window_PreviewKeyUp">
+    <Window.Resources>
+        <!--ListBoxItem样式-->
+        <Style TargetType="ListBoxItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border Name="back" CornerRadius="10,10,10,10" BorderBrush="Gray" BorderThickness="0" Height="80" Width="80" >
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                    <GradientBrush.GradientStops>
+                                        <GradientStopCollection>
+                                            <GradientStop Color="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(Button.Background).(SolidColorBrush.Color)}" Offset="0.0"/>
+                                            <GradientStop Color="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(Button.Background).(SolidColorBrush.Color)}" Offset="0.5"/>
+                                            <GradientStop Color="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(Button.Background).(SolidColorBrush.Color)}" Offset="0.51"/>
+                                            <GradientStop Color="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(Button.Background).(SolidColorBrush.Color)}" Offset="1"/>
+                                        </GradientStopCollection>
+                                    </GradientBrush.GradientStops>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <StackPanel  Orientation="Vertical" VerticalAlignment="Center">
+                                <Image Width="50" Height="50" Source="{Binding Path=image}"/>
+                                <TextBlock Text="{Binding Path=name}" FontSize="12" HorizontalAlignment="Center" FontWeight="Black"/>
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="back">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                            <GradientBrush.GradientStops>
+                                                <GradientStopCollection>
+                                                    <GradientStop Color="Gray" Offset="0.0"/>
+                                                    <GradientStop Color="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(Button.Background).(SolidColorBrush.Color)}" Offset="0.5"/>
+                                                    <GradientStop Color="Gray" Offset="1"/>
+                                                </GradientStopCollection>
+                                            </GradientBrush.GradientStops>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ContextMenu">
+                <Setter.Value>
+                    <ContextMenu >
+                        <MenuItem Header="发送信息"/>
+                        <MenuItem Header="发送文件"/>
+                        <MenuItem Header="查看共享资源"/>
+                        <Separator Opacity="0.8" ></Separator>
+                        <MenuItem Header="皮肤"/>
+                        <MenuItem Header="设置"/>
+                        <MenuItem Header="添加用户"/>
+                        <Separator Opacity="0.8" ></Separator>
+                        <MenuItem Header="刷新"/>
+                    </ContextMenu>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Window.Background>
+        <ImageBrush ImageSource="/Yatoo;component/Images/background.jpg" Stretch="UniformToFill" TileMode="None" Opacity="0"/>
+    </Window.Background>
+	<Grid x:Name="LayoutRoot">
+        <Border Name="BorderBackground" CornerRadius="10,10,10,10" Height="400" BorderBrush="Black" BorderThickness="1" VerticalAlignment="Top"  >
+            <Border.Background>
+                <ImageBrush ImageSource="/Yatoo;component/Images/background.jpg" Stretch="UniformToFill" TileMode="None" Opacity="0.7" />
+            </Border.Background>
+            <ListBox Name="User_List" ItemsSource="{Binding}" MouseLeftButtonUp="mousedown">
+                <ListBox.Template>
+                    <ControlTemplate TargetType="{x:Type ListBox}">
+                        <ScrollViewer  HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+                            <WrapPanel Orientation="Horizontal" IsItemsHost="True" ScrollViewer.CanContentScroll="True"/>
+                        </ScrollViewer>
+                    </ControlTemplate>
+                </ListBox.Template>
+
+                <ListBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="皮肤"/>
+                        <MenuItem Header="设置"/>
+                        <MenuItem Header="添加用户"/>
+                        <Separator Opacity="0.8" ></Separator>
+                        <MenuItem Header="刷新"/>
+                    </ContextMenu>
+                </ListBox.ContextMenu>
+            </ListBox>
+        </Border>
+    </Grid>
+</Window>

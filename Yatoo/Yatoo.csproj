@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2B597CB8-20A3-481D-8C6B-C95B6AF08B1B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Yatoo</RootNamespace>
+    <AssemblyName>Yatoo</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.20621.0</ExpressionBlendVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Images\Yatoo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Expression.Controls" />
+    <Reference Include="Microsoft.Expression.Drawing" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="EnterPassword.xaml.cs">
+      <DependentUpon>EnterPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FullScreenManager.cs" />
+    <Compile Include="GetFileIcon.cs" />
+    <Compile Include="SettingWindow.xaml.cs">
+      <DependentUpon>SettingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StringCompress.cs" />
+    <Compile Include="TalkWindow.xaml.cs">
+      <DependentUpon>TalkWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserWindow.xaml.cs">
+      <DependentUpon>UserWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="EnterPassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="MiniWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SettingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TalkWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MiniWindow.xaml.cs">
+      <DependentUpon>MiniWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\add.png" />
+    <Resource Include="Images\background.jpg" />
+    <Resource Include="Images\camera.png" />
+    <Resource Include="Images\characters.png" />
+    <Resource Include="Images\default.jpg" />
+    <Resource Include="Images\facesmile.png" />
+    <Resource Include="Images\file.png" />
+    <Resource Include="Images\setter.png" />
+    <Resource Include="Images\settings.png" />
+    <Resource Include="Images\skin.png" />
+    <Resource Include="Images\Yatoo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Yatoo.png" />
+    <Resource Include="Images\未命名.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\busy.png" />
+    <Resource Include="Images\hide.png" />
+    <Resource Include="Images\leave.png" />
+    <Resource Include="Images\online.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Speech.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\down.png" />
+    <Resource Include="Images\downed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\message.png" />
+    <Resource Include="Images\messaged.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\time.png" />
+    <Resource Include="Images\timed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\topmost.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\voice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\portrait\0.jpg" />
+    <Resource Include="Images\portrait\1.jpg" />
+    <Resource Include="Images\portrait\10.jpg" />
+    <Resource Include="Images\portrait\11.jpg" />
+    <Resource Include="Images\portrait\12.jpg" />
+    <Resource Include="Images\portrait\13.jpg" />
+    <Resource Include="Images\portrait\2.jpg" />
+    <Resource Include="Images\portrait\3.jpg" />
+    <Resource Include="Images\portrait\4.jpg" />
+    <Resource Include="Images\portrait\5.jpg" />
+    <Resource Include="Images\portrait\6.jpg" />
+    <Resource Include="Images\portrait\7.jpg" />
+    <Resource Include="Images\portrait\8.jpg" />
+    <Resource Include="Images\portrait\9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\expression\[00].gif" />
+    <Resource Include="Images\expression\[01].gif" />
+    <Resource Include="Images\expression\[02].gif" />
+    <Resource Include="Images\expression\[03].gif" />
+    <Resource Include="Images\expression\[04].gif" />
+    <Resource Include="Images\expression\[05].gif" />
+    <Resource Include="Images\expression\[06].gif" />
+    <Resource Include="Images\expression\[07].gif" />
+    <Resource Include="Images\expression\[08].gif" />
+    <Resource Include="Images\expression\[09].gif" />
+    <Resource Include="Images\expression\[10].gif" />
+    <Resource Include="Images\expression\[11].gif" />
+    <Resource Include="Images\expression\[12].gif" />
+    <Resource Include="Images\expression\[13].gif" />
+    <Resource Include="Images\expression\[14].gif" />
+    <Resource Include="Images\expression\[15].gif" />
+    <Resource Include="Images\expression\[16].gif" />
+    <Resource Include="Images\expression\[17].gif" />
+    <Resource Include="Images\expression\[18].gif" />
+    <Resource Include="Images\expression\[19].gif" />
+    <Resource Include="Images\expression\[20].gif" />
+    <Resource Include="Images\expression\[21].gif" />
+    <Resource Include="Images\expression\[22].gif" />
+    <Resource Include="Images\expression\[23].gif" />
+    <Resource Include="Images\expression\[24].gif" />
+    <Resource Include="Images\expression\[25].gif" />
+    <Resource Include="Images\expression\[26].gif" />
+    <Resource Include="Images\expression\[27].gif" />
+    <Resource Include="Images\expression\[28].gif" />
+    <Resource Include="Images\expression\[29].gif" />
+    <Resource Include="Images\expression\[30].gif" />
+    <Resource Include="Images\expression\[31].gif" />
+    <Resource Include="Images\expression\[32].gif" />
+    <Resource Include="Images\expression\[33].gif" />
+    <Resource Include="Images\expression\[34].gif" />
+    <Resource Include="Images\expression\[35].gif" />
+    <Resource Include="Images\expression\[36].gif" />
+    <Resource Include="Images\expression\[37].gif" />
+    <Resource Include="Images\expression\[38].gif" />
+    <Resource Include="Images\expression\[39].gif" />
+    <Resource Include="Images\expression\[40].gif" />
+    <Resource Include="Images\expression\[41].gif" />
+    <Resource Include="Images\expression\[42].gif" />
+    <Resource Include="Images\expression\[43].gif" />
+    <Resource Include="Images\expression\[44].gif" />
+    <Resource Include="Images\expression\[45].gif" />
+    <Resource Include="Images\expression\[46].gif" />
+    <Resource Include="Images\expression\[47].gif" />
+    <Resource Include="Images\expression\[48].gif" />
+    <Resource Include="Images\expression\[49].gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\theme\theme1.jpg" />
+    <Resource Include="Images\theme\theme2.jpg" />
+    <Resource Include="Images\theme\theme3.jpg" />
+    <Resource Include="Images\theme\theme6.jpg" />
+    <Resource Include="Images\theme\theme7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\White.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\theme\theme4.jpg" />
+    <Resource Include="Images\theme\theme5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\theme\background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\messages.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\directory.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

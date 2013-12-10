@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Config>
+  <image>Images/portrait/12.jpg</image>
+  <name>Jonear-PC</name>
+  <talk>要努力奋斗，养活一家老小</talk>
+  <Fontfamily>楷体</Fontfamily>
+  <Fontsize>15</Fontsize>
+  <Fontstyle>True</Fontstyle>
+  <Fontweight>True</Fontweight>
+  <Fontcolor>黑色</Fontcolor>
+  <BackgroundImage>Images/theme/background.jpg</BackgroundImage>
+  <WinOpacity>1</WinOpacity>
+  <ForeOpacity>1</ForeOpacity>
+  <SharedDir>D:\code\Yatoo\Yatoo\bin\Release\YatooShare</SharedDir>
+  <DownedDir>D:\code\Yatoo\Yatoo\bin\Release\YatooShare</DownedDir>
+  <SharedWay>NeedNothing</SharedWay>
+  <DownPassword />
+</Config>

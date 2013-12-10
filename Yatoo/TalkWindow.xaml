@@ -1,0 +1,482 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Yatoo.TalkWindow"
+        Title="TalkWindow" Height="500" Width="700" WindowStyle="None" ResizeMode="NoResize" MouseMove="window_move" AllowsTransparency="True">
+    <Window.Resources>
+    <!--右上角的关闭按钮-->
+        <Style x:Key="Button_Close" TargetType="{x:Type Button}">
+            <Setter Property="Foreground" Value="White"/>
+			<Setter Property="FontSize" Value="16"/>
+			<Setter Property="FontWeight" Value="ExtraBold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid x:Name="grid" Height="25">
+                            <Line StrokeThickness="1" X1="0" Y1="0" X2="0" Y2="25" Fill="#FF786F6F">
+                            	<Line.Stroke>
+                            		   <LinearGradientBrush StartPoint="0,0" EndPoint="0,1.5">
+                                             <LinearGradientBrush.GradientStops>
+                                                 <GradientStopCollection>
+                                                      <GradientStop Color="#FF786F6F" Offset="0"/>
+                                                      <GradientStop Color="{Binding (Control.Background).(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}}" Offset="1"/>
+                                                 </GradientStopCollection>
+                                      </LinearGradientBrush.GradientStops>
+                                        </LinearGradientBrush>                         	
+								</Line.Stroke>                     
+							</Line>
+                            
+                            <ContentPresenter Margin="10,0,0,0" x:Name="ContentPresenter" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                         VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True" Width="38.37" OpacityMask="#FFD81616"/>
+                        </Grid>
+                        <!-- 设置鼠标移到关闭按钮上的效果 -->
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="grid">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1.5">
+                                             <LinearGradientBrush.GradientStops>
+                                                 <GradientStopCollection>
+                                                      <GradientStop Color="{Binding (Control.Background).(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}}" Offset="0"/>
+                                                      <GradientStop Color="#FFFF0000" Offset="1"/>
+                                                 </GradientStopCollection>
+                                      </LinearGradientBrush.GradientStops>
+                                        </LinearGradientBrush>                              
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="{x:Null}"/>
+        </Style>
+		<!--其他系统按钮-->
+        <Style x:Key="Button_Window" TargetType="{x:Type Button}">
+            <Setter Property="Foreground" Value="White"/>
+			<Setter Property="FontSize" Value="17"/>
+			<Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid x:Name="grid">
+                            <Line StrokeThickness="1" X1="0" Y1="0" X2="0" Y2="25" Fill="#FF786F6F" Margin="0,0,8,0">
+                            	<Line.Stroke>
+                            		   <LinearGradientBrush StartPoint="0,0" EndPoint="0,1.5">
+                                             <LinearGradientBrush.GradientStops>
+                                                 <GradientStopCollection>
+                                                      <GradientStop Color="#FF786F6F" Offset="0"/>
+                                                      <GradientStop Color="{Binding (Control.Background).(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}}" Offset="1"/>
+                                                 </GradientStopCollection>
+                                      </LinearGradientBrush.GradientStops>
+                                        </LinearGradientBrush>                         	
+								</Line.Stroke>                     
+							</Line>
+                            <ContentPresenter x:Name="ContentPresenter" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                         VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True" Width="30" OpacityMask="#FFD81616"/>
+                        </Grid>
+                        <!-- 设置鼠标移到关闭按钮上的效果 -->
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="grid">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1.5">
+                                             <LinearGradientBrush.GradientStops>
+                                                 <GradientStopCollection>
+                                                      <GradientStop Color="#FF3ED0A5" Offset="0"/>
+													  <GradientStop Color="{Binding (Control.Background).(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}}" Offset="0.6"/>
+                                                      <GradientStop Color="{Binding (Control.Background).(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}}" Offset="1"/>
+                                                 </GradientStopCollection>
+                                      </LinearGradientBrush.GradientStops>
+                                        </LinearGradientBrush>                              
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="{x:Null}"/>
+        </Style>
+        <!--语音聊天-->
+		<Style x:Key="Button_Voice" TargetType="{x:Type Button}">
+            <Setter Property="Foreground" Value="White"/>
+			<Setter Property="FontSize" Value="17"/>
+			<Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid x:Name="grid">
+                           <Image Source="/Yatoo;component/Images/voice.png"/>
+                        </Grid>
+                        <!-- 设置鼠标移到关闭按钮上的效果 -->
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="grid">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                             <LinearGradientBrush.GradientStops>
+                                                 <GradientStopCollection>
+                                                      <GradientStop Color="{Binding (Control.Background).(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}}" Offset="0"/>
+													  <GradientStop Color="White" Offset="0.6"/>
+                                                      <GradientStop Color="{Binding (Control.Background).(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}}" Offset="1"/>
+                                                 </GradientStopCollection>
+                                      </LinearGradientBrush.GradientStops>
+                                        </LinearGradientBrush>                              
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="{x:Null}"/>
+        </Style>
+        <!--视频聊天按钮-->
+		<Style x:Key="Button_Camera" TargetType="{x:Type Button}">
+            <Setter Property="Foreground" Value="White"/>
+			<Setter Property="FontSize" Value="17"/>
+			<Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid x:Name="grid">
+                           <Image Source="/Yatoo;component/Images/camera.png"/>
+                        </Grid>
+                        <!-- 设置鼠标移到关闭按钮上的效果 -->
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="grid">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                             <LinearGradientBrush.GradientStops>
+                                                 <GradientStopCollection>
+                                                      <GradientStop Color="{Binding (Control.Background).(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}}" Offset="0"/>
+													  <GradientStop Color="White" Offset="0.6"/>
+                                                      <GradientStop Color="{Binding (Control.Background).(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}}" Offset="1"/>
+                                                 </GradientStopCollection>
+                                      </LinearGradientBrush.GradientStops>
+                                        </LinearGradientBrush>                              
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="{x:Null}"/>
+        </Style>
+        <!--发送文件按钮-->
+		<Style x:Key="Button_Sendfile" TargetType="{x:Type Button}">
+            <Setter Property="Foreground" Value="White"/>
+			<Setter Property="FontSize" Value="17"/>
+			<Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid x:Name="grid">
+                           <Image Source="/Yatoo;component/Images/file.png"/>
+                        </Grid>
+                        <!-- 设置鼠标移到关闭按钮上的效果 -->
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="grid">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                             <LinearGradientBrush.GradientStops>
+                                                 <GradientStopCollection>
+                                                      <GradientStop Color="{Binding (Control.Background).(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}}" Offset="0"/>
+													  <GradientStop Color="White" Offset="0.6"/>
+                                                      <GradientStop Color="{Binding (Control.Background).(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}}" Offset="1"/>
+                                                 </GradientStopCollection>
+                                      </LinearGradientBrush.GradientStops>
+                                        </LinearGradientBrush>                              
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="{x:Null}"/>
+        </Style>
+        <!--设置按钮-->
+		<Style x:Key="Button_Setter" TargetType="{x:Type Button}">
+            <Setter Property="Foreground" Value="White"/>
+			<Setter Property="FontSize" Value="17"/>
+			<Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid x:Name="grid">
+                           <Image Source="/Yatoo;component/Images/setter.png"/>
+                        </Grid>
+                        <!-- 设置鼠标移到关闭按钮上的效果 -->
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="grid">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                             <LinearGradientBrush.GradientStops>
+                                                 <GradientStopCollection>
+                                                      <GradientStop Color="{Binding (Control.Background).(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}}" Offset="0"/>
+													  <GradientStop Color="White" Offset="0.6"/>
+                                                      <GradientStop Color="{Binding (Control.Background).(SolidColorBrush.Color), RelativeSource={RelativeSource TemplatedParent}}" Offset="1"/>
+                                                 </GradientStopCollection>
+                                      </LinearGradientBrush.GradientStops>
+                                        </LinearGradientBrush>                              
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="{x:Null}"/>
+        </Style>
+		<!--修改字体按钮-->
+        <Style x:Key="Button_characters" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border CornerRadius="13,13,13,13" Width="27" Height="27" x:Name="bd" BorderBrush="Gray" >
+                            <Image Width="20" Height="20" Source="/Yatoo;component/Images/characters.png"></Image>
+                        </Border>
+                        <!-- 设置鼠标移到关闭按钮上的效果 -->
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                            	<Setter Property="BorderThickness" TargetName="bd" Value="1"/>
+                                <Setter Property="Background" TargetName="bd">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1.5">
+                                             <LinearGradientBrush.GradientStops>
+                                                 <GradientStopCollection>
+                                                      <GradientStop Color="#FFF" Offset="0"/>
+                                                    <GradientStop Color="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(Button.Background).(SolidColorBrush.Color)}" Offset="0.5"/>
+                                                    <GradientStop Color="#FFF" Offset="1"/>
+                                                 </GradientStopCollection>
+                                      </LinearGradientBrush.GradientStops>
+                                        </LinearGradientBrush>                              
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="{x:Null}"/>
+        </Style>
+		<!--增加表情按钮-->
+        <Style x:Key="Button_Expression" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border CornerRadius="13,13,13,13" Width="27" Height="27" x:Name="bd" BorderBrush="Gray" >
+                            <Image Width="20" Height="20" Source="/Yatoo;component/Images/facesmile.png"></Image>
+                        </Border>
+                        <!-- 设置鼠标移到关闭按钮上的效果 -->
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                            	<Setter Property="BorderThickness" TargetName="bd" Value="1"/>
+                                <Setter Property="Background" TargetName="bd">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1.5">
+                                             <LinearGradientBrush.GradientStops>
+                                                 <GradientStopCollection>
+                                                      <GradientStop Color="#FFF" Offset="0"/>
+                                                    <GradientStop Color="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(Button.Background).(SolidColorBrush.Color)}" Offset="0.5"/>
+                                                    <GradientStop Color="#FFF" Offset="1"/>
+                                                 </GradientStopCollection>
+                                      </LinearGradientBrush.GradientStops>
+                                        </LinearGradientBrush>                              
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="{x:Null}"/>
+        </Style>
+        <!--修改字体三个按钮-->
+        <Style x:Key="Button_setfont" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border CornerRadius="13,13,13,13" Width="22" Height="22" x:Name="bd" BorderBrush="Gray" >
+                            <Label Content="{TemplateBinding Content}" Width="30" Height="30"  Margin="0,-4,0,0" FontSize="14"/>
+                        </Border>
+                        <!-- 设置鼠标移到关闭按钮上的效果 -->
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderThickness" TargetName="bd" Value="1"/>
+                                <Setter Property="Background" TargetName="bd">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1.5">
+                                            <LinearGradientBrush.GradientStops>
+                                                <GradientStopCollection>
+                                                    <GradientStop Color="#FFF" Offset="0"/>
+                                                    <GradientStop Color="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(Button.Background).(SolidColorBrush.Color)}" Offset="0.5"/>
+                                                    <GradientStop Color="#FFF" Offset="1"/>
+                                                </GradientStopCollection>
+                                            </LinearGradientBrush.GradientStops>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="{x:Null}"/>
+        </Style>
+        <!--修改字体三个按钮-->
+        <Style x:Key="Button_SendFile" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Width="70" Height="22" x:Name="bd" BorderBrush="Gray" >
+                            <Label Content="{TemplateBinding Content}" Width="70" Height="30"  Margin="0,-4,0,0"  Foreground="Green" FontSize="14"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="{x:Null}"/>
+        </Style>
+    </Window.Resources>
+    <Window.Background>
+        <ImageBrush ImageSource="/Yatoo;component/Images/background.jpg" Stretch="UniformToFill" TileMode="None" Opacity="0"/>
+    </Window.Background>
+	<Grid>
+		<Border BorderBrush="Black" BorderThickness="1" CornerRadius="10,10,10,10">
+			<Border.Background>
+				<ImageBrush x:Name="WindowBackground" ImageSource="/Yatoo;component/Images/background.jpg" Stretch="UniformToFill" TileMode="None"/>
+			</Border.Background>
+        </Border>
+        <Button Style="{StaticResource Button_Window}" Content="  ━" Height="33" HorizontalAlignment="Right" Margin="0,3,40,0" x:Name="button2" VerticalAlignment="Top" Width="34" Click="MinimumWindow" />
+		<Button  Style="{StaticResource Button_Close}" Click="CloseWindow" Content="  ╳" Height="33" HorizontalAlignment="Right" Margin="0,0,0,0" x:Name="Button_Close" VerticalAlignment="Top" Width="39" />
+		<Image Name="UserImage" Source="/Yatoo;component/Images/未命名.jpg" Margin="18,16,0,0" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="60"/>
+        <Label FontWeight="Bold" Content="" Height="28" Name="UserName" Margin="91.5,17.666,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="308.5" />
+        <RichTextBox PreviewDragEnter="File_PreviewDraEnter" PreviewDrop="File_PreviewDrop" PreviewDragOver="File_PreviewDragOver" Name="MyMsg"  ScrollViewer.VerticalScrollBarVisibility="Auto"  Margin="3,0,0,31" Height="91" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="395.5" PreviewKeyDown="MyMsg_PreviewKeyDown" PreviewKeyUp="MyMsg_PreviewKeyUp" GotFocus="MyMsgGotFocusClick"/>
+        <Button Style="{StaticResource Button_characters}" Content="Button" Margin="10.5,0,0,123" HorizontalAlignment="Left" Height="26.5" VerticalAlignment="Bottom" Width="28.5" Click="SetFontClick" />
+        <Button Style="{StaticResource Button_Expression}" Content="Button" Margin="43,0,0,123" HorizontalAlignment="Left" Height="26" VerticalAlignment="Bottom" Width="28.167" Click="ShowExpression"/>
+        <RichTextBox ScrollViewer.VerticalScrollBarVisibility="Auto" Name="ShowMsg" Margin="4,88,0,150" IsReadOnly="True" HorizontalAlignment="Left" Width="394.5" />
+        <Grid  Name="Grid_Expression" Visibility="Hidden" Margin="4,245,302,149"  Background="Beige" >
+            <ListBox Name="ListBox_Expression" ItemsSource="{Binding}" Margin="5,0,0,0" Height="105" MouseLeftButtonUp="Expression_LeftUpClick">
+        		 <ListBox.Template>
+                    <ControlTemplate TargetType="{x:Type ListBox}">
+                        <ScrollViewer  HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+                            <WrapPanel Orientation="Horizontal" IsItemsHost="True" ScrollViewer.CanContentScroll="True"/>
+                        </ScrollViewer>
+                    </ControlTemplate>
+                </ListBox.Template>   
+				<ListBox.ItemTemplate>
+					<DataTemplate >
+                        <Border Name="back" BorderBrush="Gray" BorderThickness="0" Height="25" Width="25" >
+                            <Image Width="25" Height="25" Source="{Binding Path=image}"/> 
+					    </Border>
+                        <DataTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderThickness" TargetName="back" Value="1"/>
+                            </Trigger> 
+                        </DataTemplate.Triggers>
+                    </DataTemplate>
+				</ListBox.ItemTemplate>  
+			</ListBox>
+        </Grid>
+        <StackPanel Visibility="Hidden" Name="SetFont" Orientation="Horizontal" Margin="4,0,302.5,149" Height="22" VerticalAlignment="Bottom" Background="#FFB7B7B7" >
+            <ComboBox Background="Beige" Name="ComboBox_FontFamily" Width="100"  Margin="10,0,0,0" SelectionChanged="FontFamilyClick">
+        		<ComboBoxItem Content="宋体" FontFamily="宋体"/>
+				<ComboBoxItem Content="楷体" FontFamily="楷体"/>
+				<ComboBoxItem Content="黑体" FontFamily="黑体"/>
+				<ComboBoxItem Content="仿宋" FontFamily="仿宋"/>
+				<ComboBoxItem Content="微软雅黑" FontFamily="微软雅黑"/>
+				<ComboBoxItem Content="新宋体"  FontFamily="新宋体"/>
+            </ComboBox>
+            <ComboBox Background="Beige"  Name="ComboBox_FontSize"  Width="50" Margin="8,0,0,0" SelectionChanged="FontSizeClick">
+            	<ComboBoxItem Content="13"/>
+				<ComboBoxItem Content="14"/>
+				<ComboBoxItem Content="15"/>
+				<ComboBoxItem Content="16"/>
+				<ComboBoxItem Content="17"/>
+				<ComboBoxItem Content="18"/>
+				<ComboBoxItem Content="19"/>
+				<ComboBoxItem Content="20"/>
+				<ComboBoxItem Content="21"/>
+				<ComboBoxItem Content="22"/>
+            </ComboBox>
+            <Button Name="Button_FontWeight" Style="{StaticResource Button_setfont}" Content="B" Width="25"  Margin="8,0,0,0" FontWeight="Bold" Click="FontWeightClick" />
+            <Button Name="Button_FontStyle"  Style="{StaticResource Button_setfont}" Content="I" Width="25"  Margin="8,0,0,0"  FontStyle="Italic" Click="FontStyleClick" />
+            <Button Name="Button_UnderLine"  Style="{StaticResource Button_setfont}" Width="25"  Margin="8,0,0,0">
+                <TextBlock TextDecorations="Underline" FontWeight="Bold">U</TextBlock>
+            </Button>
+            <ComboBox Background="Beige"  Name="ComboBox_FontColor"   Width="80"  Margin="8,0,0,0" SelectionChanged="FontColorClick">
+				<ComboBoxItem Content="红色" Foreground="Red"/>
+				<ComboBoxItem Content="蓝色" Foreground="Blue"/>
+				<ComboBoxItem Content="黑色" Foreground="Black"/>
+				<ComboBoxItem Content="黄色" Foreground="Yellow"/>
+				<ComboBoxItem Content="绿色" Foreground="Green"/>
+				<ComboBoxItem Content="紫色" Foreground="Purple"/>
+				<ComboBoxItem Content="粉红" Foreground="Pink"/>
+				<ComboBoxItem Content="浅蓝" Foreground="LightBlue"/>
+				<ComboBoxItem Content="褐色" Foreground="Brown"/>
+				<ComboBoxItem Content="浅绿" Foreground="LightGreen"/>
+            </ComboBox>
+        </StackPanel>
+        <Button Content="关闭" Click="CloseWindow" Margin="222.168,0,0,4" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="65.666"/>
+		<Button Content="发送" Width="65.666" Margin="303.668,0,0,4" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="SendMsgTo" />
+		<Button Content="▼" Margin="369.334,0,0,4" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="21.666"/>
+		<Button Style="{StaticResource Button_Voice}" HorizontalAlignment="Left" Margin="96.829,45.832,0,0" VerticalAlignment="Top" Width="40" Height="40"/>
+		<Button Style="{StaticResource Button_Camera}" HorizontalAlignment="Left" Margin="156.829,45.832,0,0" VerticalAlignment="Top" Width="40" Height="40"/>
+		<Button Name="Button_SendFile" Click="SendFileClick" Style="{StaticResource Button_Sendfile}" Margin="217.997,45.832,0,0" VerticalAlignment="Top" Height="40" HorizontalAlignment="Left" Width="40"/>
+        <Button Style="{StaticResource Button_Setter}" Click="SettingClick" HorizontalAlignment="Left" Margin="280.996,45.832,0,0" VerticalAlignment="Top" Width="40" Height="40" d:LayoutOverrides="HorizontalAlignment"/>
+        <ListBox Name="File_List" Visibility="Hidden" HorizontalAlignment="Left" Margin="405,88,0,30" Width="289.5">
+            <ListBox.ItemTemplate>
+            <DataTemplate>
+                <StackPanel x:Name="stackpanel" Height="80" Orientation="Horizontal">
+                        <Image Name="ImageIcon" Width="50" Height="50" Source="{Binding Path=icon}"/>
+                        <StackPanel Margin="10,10,10,10" Orientation="Vertical" Width="200" >
+                            <ProgressBar Height="20" Value="{Binding Path=Progress}"/>
+                            <Grid  >
+                                <TextBlock Name="name" Width="150" Text="{Binding Path=name}" HorizontalAlignment="Left" FontSize="12" FontWeight="Black"/>
+                                <TextBlock Text="{Binding Path=size}" FontSize="12" HorizontalAlignment="Right" FontWeight="Black"/>
+                            </Grid>
+                            <Grid>
+                                <Button  Style="{StaticResource Button_SendFile}"  BorderThickness="{Binding Path=id}" Cursor="Hand" Content="{Binding Path=Button1_name}" Click="AcceptRecvFileClick" Visibility="{Binding Path=ShowButton1}" HorizontalAlignment="Left"/>
+                                <Label Content="{Binding Path=Speed}"  Visibility="{Binding Path=ShowSpeed}" HorizontalAlignment="Left"/>
+                                <Button Style="{StaticResource Button_SendFile}" BorderThickness="{Binding Path=id}" Cursor="Hand"  Content="{Binding Path=Button2_name}" HorizontalAlignment="Right" Click="RefuseFileClick"/>
+                            </Grid>
+                    </StackPanel>
+                </StackPanel>
+            </DataTemplate>
+		 </ListBox.ItemTemplate>
+      </ListBox>
+        <ListBox Name="SharedFile_List" HorizontalAlignment="Left" Margin="405,88,0,30" Width="295" MouseDoubleClick="ShareFileMouseDoubleClick">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel x:Name="stackpanel" Height="20" Width="270" Orientation="Horizontal">
+                        <Image Width="17" Height="17" Source="{Binding Path=image}"/>
+                        <TextBlock Margin="10,0,0,0" Name="name" Text="{Binding Path=name}" FontSize="12" FontWeight="Black"/>
+                        <TextBlock Text="("/>
+                        <TextBlock  Text="{Binding Path=size}" FontSize="12"/>
+                        <TextBlock Text=")"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="下载文件" Click="ShareFileMouseDoubleClick"/>
+                    <MenuItem Header="查看详细信息" Click="ShowMoreFileMessage"/>
+                    <Separator Opacity="0.8" ></Separator>
+                    <MenuItem Header="刷新" Click="UpdateSharedFile"/>
+                </ContextMenu>
+            </ListBox.ContextMenu>
+        </ListBox>
+		<Grid Name="DownSharedFileProgress" Visibility="Hidden" HorizontalAlignment="Right" Margin="0,0,14,4" Width="273" Height="22" VerticalAlignment="Bottom">
+			<ProgressBar HorizontalAlignment="Left" Margin="0,0.336,0,0" Width="118.319"/>
+			<Label Content="12%" Margin="122.319,0.336,118.332,0" FontSize="10"/>
+            <Label Content="122m/s"  FontSize="10" HorizontalAlignment="Right" Width="60" Margin="0,0,69,0" />
+            <Button Style="{StaticResource Button_setfont}" Content="╳" Margin="0,0.336,-4,0" HorizontalAlignment="Right" Width="26"/>
+		</Grid>
+    </Grid>
+</Window>

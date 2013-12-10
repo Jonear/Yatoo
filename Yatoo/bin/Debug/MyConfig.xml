@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Config>
+  <image>Images/portrait/12.jpg</image>
+  <name>Jonear-PC</name>
+  <talk>要努力奋斗，养活一家老小</talk>
+  <Fontfamily>楷体</Fontfamily>
+  <Fontsize>15</Fontsize>
+  <Fontstyle>True</Fontstyle>
+  <Fontweight>True</Fontweight>
+  <Fontcolor>黑色</Fontcolor>
+  <BackgroundImage>Images/theme/theme3.jpg</BackgroundImage>
+  <WinOpacity>0.900819361519311</WinOpacity>
+  <ForeOpacity>0.539299447300884</ForeOpacity>
+  <SharedDir>D:\TDDOWNLOAD</SharedDir>
+  <DownedDir>C:\Users\Jonear\Documents\Visual Studio 2010\Projects\Yatoo\Yatoo\bin\Debug\YatooShare</DownedDir>
+  <SharedWay>NeedNothing</SharedWay>
+  <DownPassword>123456</DownPassword>
+</Config>

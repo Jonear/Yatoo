@@ -1,0 +1,50 @@
+c:\users\jonear\documents\visual studio 2010\Projects\Yatoo\Yatoo\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\jonear\documents\visual studio 2010\Projects\Yatoo\Yatoo\obj\x86\Debug\MainWindow.baml
+c:\users\jonear\documents\visual studio 2010\Projects\Yatoo\Yatoo\obj\x86\Debug\MainWindow.g.cs
+c:\users\jonear\documents\visual studio 2010\Projects\Yatoo\Yatoo\obj\x86\Debug\App.g.cs
+c:\users\jonear\documents\visual studio 2010\Projects\Yatoo\Yatoo\obj\x86\Debug\Yatoo_MarkupCompile.cache
+c:\users\jonear\documents\visual studio 2010\Projects\Yatoo\Yatoo\obj\x86\Debug\Yatoo.g.resources
+c:\users\jonear\documents\visual studio 2010\Projects\Yatoo\Yatoo\obj\x86\Debug\Yatoo.Properties.Resources.resources
+c:\users\jonear\documents\visual studio 2010\Projects\Yatoo\Yatoo\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\users\jonear\documents\visual studio 2010\Projects\Yatoo\Yatoo\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\users\jonear\documents\visual studio 2010\Projects\Yatoo\Yatoo\bin\Debug\Yatoo.exe
+c:\users\jonear\documents\visual studio 2010\Projects\Yatoo\Yatoo\bin\Debug\Yatoo.pdb
+c:\users\jonear\documents\visual studio 2010\Projects\Yatoo\Yatoo\obj\x86\Debug\Yatoo.exe
+c:\users\jonear\documents\visual studio 2010\Projects\Yatoo\Yatoo\obj\x86\Debug\Yatoo.pdb
+C:\Users\Jonear\documents\visual studio 2010\Projects\Yatoo\Yatoo\obj\x86\Debug\MiniWindow.baml
+C:\Users\Jonear\documents\visual studio 2010\Projects\Yatoo\Yatoo\obj\x86\Debug\MiniWindow.g.cs
+C:\Users\Jonear\documents\visual studio 2010\Projects\Yatoo\Yatoo\obj\x86\Debug\TalkWindow.baml
+C:\Users\Jonear\documents\visual studio 2010\Projects\Yatoo\Yatoo\obj\x86\Debug\TalkWindow.g.cs
+C:\Users\Jonear\Documents\Visual Studio 2010\Projects\Yatoo\Yatoo\bin\Debug\Microsoft.Expression.Controls.dll
+C:\Users\Jonear\Documents\Visual Studio 2010\Projects\Yatoo\Yatoo\bin\Debug\Microsoft.Expression.Drawing.dll
+C:\Users\Jonear\Documents\Visual Studio 2010\Projects\Yatoo\Yatoo\bin\Debug\Microsoft.Expression.Controls.xml
+C:\Users\Jonear\Documents\Visual Studio 2010\Projects\Yatoo\Yatoo\bin\Debug\Microsoft.Expression.Drawing.xml
+C:\Users\Jonear\Documents\Visual Studio 2010\Projects\Yatoo\Yatoo\obj\x86\Debug\UserWindow.baml
+C:\Users\Jonear\Documents\Visual Studio 2010\Projects\Yatoo\Yatoo\obj\x86\Debug\UserWindow.g.cs
+C:\Users\Jonear\documents\visual studio 2010\Projects\Yatoo\Yatoo\obj\x86\Debug\SettingWindow.baml
+C:\Users\Jonear\documents\visual studio 2010\Projects\Yatoo\Yatoo\obj\x86\Debug\SettingWindow.g.cs
+C:\Users\Jonear\documents\visual studio 2010\Projects\Yatoo\Yatoo\obj\x86\Debug\EnterPassword.baml
+C:\Users\Jonear\documents\visual studio 2010\Projects\Yatoo\Yatoo\obj\x86\Debug\EnterPassword.g.cs
+D:\code\Yatoo\Yatoo\obj\x86\Debug\Yatoo.exe
+D:\code\Yatoo\Yatoo\obj\x86\Debug\Yatoo.pdb
+D:\code\Yatoo\Yatoo\bin\Debug\Yatoo.exe
+D:\code\Yatoo\Yatoo\bin\Debug\Yatoo.pdb
+D:\code\Yatoo\Yatoo\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\code\Yatoo\Yatoo\obj\x86\Debug\EnterPassword.baml
+D:\code\Yatoo\Yatoo\obj\x86\Debug\MainWindow.baml
+D:\code\Yatoo\Yatoo\obj\x86\Debug\MiniWindow.baml
+D:\code\Yatoo\Yatoo\obj\x86\Debug\SettingWindow.baml
+D:\code\Yatoo\Yatoo\obj\x86\Debug\TalkWindow.baml
+D:\code\Yatoo\Yatoo\obj\x86\Debug\UserWindow.baml
+D:\code\Yatoo\Yatoo\obj\x86\Debug\EnterPassword.g.cs
+D:\code\Yatoo\Yatoo\obj\x86\Debug\MainWindow.g.cs
+D:\code\Yatoo\Yatoo\obj\x86\Debug\MiniWindow.g.cs
+D:\code\Yatoo\Yatoo\obj\x86\Debug\SettingWindow.g.cs
+D:\code\Yatoo\Yatoo\obj\x86\Debug\TalkWindow.g.cs
+D:\code\Yatoo\Yatoo\obj\x86\Debug\UserWindow.g.cs
+D:\code\Yatoo\Yatoo\obj\x86\Debug\App.g.cs
+D:\code\Yatoo\Yatoo\obj\x86\Debug\Yatoo_MarkupCompile.cache
+D:\code\Yatoo\Yatoo\obj\x86\Debug\Yatoo.g.resources
+D:\code\Yatoo\Yatoo\obj\x86\Debug\Yatoo.Properties.Resources.resources
+D:\code\Yatoo\Yatoo\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\code\Yatoo\Yatoo\obj\x86\Debug\GenerateResource.write.1.tlog
